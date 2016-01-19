@@ -1,8 +1,8 @@
-# sbt-differential-test
+# sbt-diff-project
 
 ### Make CI for sbt multi-project FASTER.
 
-Test only projects and their children in differentials between two git branches.
+Show projects and their children which are different between two commits.
 
 ## Installation
 

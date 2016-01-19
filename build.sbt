@@ -1,14 +1,11 @@
 lazy val root = (project in file(".")).settings(
   sbtPlugin := true,
-  name := "sbt-differential-test",
-  organization := "com.mayreh",
-  version := "0.1.0",
-  licenses += "MIT" -> url("https://raw.githubusercontent.com/ocadaruma/sbt-differential-test/master/LICENSE"),
+  name := "sbt-diff-project",
+  licenses += "MIT" -> url("https://raw.githubusercontent.com/opt-tech/sbt-diff-project/master/LICENSE"),
+  addSbtPlugin("com.mayreh" % "sbt-reverse-dependency" % "0.1.1"),
 
-  /**
-   * scripted test settings
-   */
-  scriptedSettings,
-  scriptedLaunchOpts += s"-Dplugin.version=${version.value}",
-  scriptedBufferLog := false
+  version := "0.1.0",
+  organization := "jp.ne.opt",
+  organizationName := "OptTechnologies",
+  startYear := Some(2016)
 )
