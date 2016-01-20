@@ -2,7 +2,7 @@
 
 ### Make CI for sbt multi-project FASTER.
 
-Show projects and their children which are different between two commits.
+Show projects and their children which are different in git diff.
 
 ## Use case
 
