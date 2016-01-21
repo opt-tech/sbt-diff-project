@@ -7,5 +7,12 @@ lazy val root = (project in file(".")).settings(
   version := "0.1.0",
   organization := "jp.ne.opt",
   organizationName := "OptTechnologies",
-  startYear := Some(2016)
+  startYear := Some(2016),
+
+  /**
+   * scripted test settings
+   */
+  scriptedSettings,
+  scriptedLaunchOpts += s"-Dplugin.version=${version.value}",
+  scriptedBufferLog := false
 )

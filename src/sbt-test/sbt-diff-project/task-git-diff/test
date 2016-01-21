@@ -1,0 +1,9 @@
+$ exec chmod +x ./prepare.sh
+$ exec ./prepare.sh
+
+> check-batchCommon
+> check-common
+> check-web
+> check-affectAll
+
+> check-all

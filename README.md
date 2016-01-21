@@ -4,6 +4,8 @@
 
 Show projects and their children which are different in git diff.
 
+[![Circle CI](https://circleci.com/gh/opt-tech/sbt-diff-project.svg?style=shield)](https://circleci.com/gh/opt-tech/sbt-diff-project)
+
 ## Use case
 
 Imagine that your sbt multi-project is defined as below.
@@ -29,7 +31,7 @@ This can be achieved as follows. (suppose that changes are committed to `feature
 
 ```bash
 $ cd /path/to/sbt-project
-$ sbt 'git-diff-all master feature/batch'
+$ sbt --error 'set showSuccess := false' 'git-diff-all master feature/batch'
 batch
 secondBatch
 ```

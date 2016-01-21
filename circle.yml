@@ -1,0 +1,7 @@
+dependencies:
+  cache_directories:
+    - "~/.sbt"
+
+test:
+  override:
+    - sbt scripted
