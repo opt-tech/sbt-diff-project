@@ -31,12 +31,14 @@ This can be achieved as follows. (suppose that changes are committed to `feature
 
 ```bash
 $ cd /path/to/sbt-project
-$ sbt --error 'set showSuccess := false' 'git-diff-all master feature/batch'
+$ sbt --error 'set showSuccess := false' 'git-diff-all master feature/batch' # suppress sbt debug log
 batch
 secondBatch
 ```
 
-You can test only `batch` and `secondBatch` via piping or redirecting this output. (testing directly is currently not supported.)
+Voila, `git-diff-all` command prints `batch`(contains modified file) and `secondBatch`(is dependsOn `batch`).
+
+Now, you can test `batch` and `secondBatch` via pipe or redirection.
 
 ## Usage
 
@@ -57,8 +59,8 @@ See above use case.
 - `gitDiffSeparator` : Specify separator string for printing projects. `\n` as default.
 - `printGitDiffByBaseDirectory` : Print base directory instead of project ID. `false` as default.
 - `printGitDiffByAbsolutePath` : Print absolute path instead of related path. (only affects when `printGitDiffByBaseDirectory` is true) `false` by default.
-- `excludeRootProject` : This plugin derives diff based on project's base directory. Since root project's base is included to all project's base, excluding root project is reasonable. `true` by default.
-- `patternsAffectAllProjects` : For some special files, you would want to test all projects if the file is modified. (e.g. `.travis.yml`, `circle.yml`, `build.sbt`, ...) `Seq(""".+\.sbt$""", """.+project/[^/]+\.scala""")` by default.
+- `excludeRootProject` : This plugin derives project-diff based on project's base directory. Since root project's base directory-path is included to any project's, excluding root project from diff is reasonable. `true` by default.
+- `patternsAffectAllProjects` : For some special files, you would want to force testing all projects if the file is modified. (e.g. `.travis.yml`, `circle.yml`, `build.sbt`, ...) `Seq(""".+\.sbt$""", """.+project/[^/]+\.scala""")` by default.
 
 ## License
 
