@@ -50,9 +50,18 @@ Add the plugin in project/plugins.sbt:
 addSbtPlugin("jp.ne.opt" % "sbt-diff-project" % "0.1.0")
 ```
 
-### Print diff
+### `git-diff-all` command
 
-See above use case.
+`git-diff-all` sbt command executes `git diff --name-only` internally.
+
+You can use this command as follows.
+
+```bash
+$ sbt git-diff-all
+$ sbt 'git-diff-all 752a93 b2f98f'
+$ sbt 'git-diff-all master feature/foo'
+$ sbt --error 'set showSuccess := false' git-diff-all  # suppress sbt debug log
+```
 
 ### Configurations
 
