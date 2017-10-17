@@ -4,4 +4,4 @@ dependencies:
 
 test:
   override:
-    - sbt scripted
+    - sbt ^scripted
