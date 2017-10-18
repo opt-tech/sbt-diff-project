@@ -4,7 +4,6 @@ import sbt._
 import Keys._
 import complete.Parsers.spaceDelimited
 import com.mayreh.sbt.dependency.SbtPlugin.autoImport.reverseDependency
-import jp.ne.opt.sbt.future._
 
 object SbtPlugin extends AutoPlugin {
   object autoImport extends SbtPluginKeys
@@ -41,7 +40,7 @@ object SbtPlugin extends AutoPlugin {
 
       val (modifiedState, diffProjects) = loadedBuild.value.allProjectRefs.foldLeft(state -> Seq.empty[ResolvedProject]) {
         case ((currentState, projects), (ref, project)) =>
-          val (s, resolvedProjects) = Project.extract(state)._runInputTask(gitDiff in ref, s" ${args.mkString(" ")}", state)
+          val (s, resolvedProjects) = Project.extract(state).runInputTask(gitDiff in ref, s" ${args.mkString(" ")}", state)
           s -> (projects ++ resolvedProjects)
       }
 
