@@ -12,6 +12,8 @@ trait SbtPluginKeys {
     "Print base directory instead of project ID.")
   val printGitDiffByAbsolutePath = SettingKey[Boolean]("print-git-diff-by-absolute-path",
     "Print absolute path instead of related path. This option only affects when printGitDiffByBaseDirectory is true.")
+  val printGitDiffToFile = SettingKey[Option[File]]("print-git-diff-to-file",
+    "Print to a file instead of to stdout.")
   val excludeRootProject = SettingKey[Boolean]("exclude-root-project",
     "Specify if results should exclude root project for git-diff-all command.")
   val patternsAffectAllProjects = SettingKey[Seq[String]]("patterns-affect-all-projects",
