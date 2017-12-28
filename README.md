@@ -63,6 +63,14 @@ $ sbt 'git-diff-all master feature/foo'
 $ sbt --error 'set showSuccess := false' git-diff-all  # suppress sbt debug log
 ```
 
+You can use `printGitDiffToFile` to configure output. (stdout by default)
+
+```bash
+$ sbt
+> set printGitDiffToFile := Some(file("/path/to/diff.txt"))
+> git-diff-all
+```
+
 ### Configurations
 
 - `gitDiffSeparator` : Specify separator string for printing projects. `\n` as default.
