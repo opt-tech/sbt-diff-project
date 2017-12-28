@@ -1,5 +1,7 @@
 package jp.ne.opt.sbt.diff
 
+import java.io.PrintStream
+
 import sbt._
 import Keys._
 import complete.Parsers.spaceDelimited
@@ -16,6 +18,7 @@ object SbtPlugin extends AutoPlugin {
     gitDiffSeparator in Global := "\n",
     printGitDiffByBaseDirectory in Global := false,
     printGitDiffByAbsolutePath in Global := false,
+    printGitDiffToFile in Global := None,
     excludeRootProject in Global := true,
     patternsAffectAllProjects in Global := Seq(
       """.+\.sbt$""",
@@ -58,7 +61,8 @@ object SbtPlugin extends AutoPlugin {
         buildRoot,
         gitDiffSeparator.value,
         printGitDiffByBaseDirectory.value,
-        printGitDiffByAbsolutePath.value)
+        printGitDiffByAbsolutePath.value,
+        printGitDiffToFile.value)
 
       modifiedState
     }
@@ -71,7 +75,11 @@ object SbtPlugin extends AutoPlugin {
                                   buildRoot: File,
                                   separator: String,
                                   byBaseDirectory: Boolean,
-                                  byAbsolutePath: Boolean): Unit = {
+                                  byAbsolutePath: Boolean,
+                                  toFile: Option[File]): Unit = {
+
+    val out = toFile.fold(System.out)(new PrintStream(_))
+
     projects.headOption.foreach { _ =>
       val str = projects.map { project =>
         if (!byBaseDirectory) {
@@ -83,7 +91,7 @@ object SbtPlugin extends AutoPlugin {
         }
       }.sorted mkString separator
 
-      println(str)
+      out.println(str)
     }
   }
 }

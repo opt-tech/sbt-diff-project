@@ -68,6 +68,7 @@ $ sbt --error 'set showSuccess := false' git-diff-all  # suppress sbt debug log
 - `gitDiffSeparator` : Specify separator string for printing projects. `\n` as default.
 - `printGitDiffByBaseDirectory` : Print base directory instead of project ID. `false` as default.
 - `printGitDiffByAbsolutePath` : Print absolute path instead of related path. (only affects when `printGitDiffByBaseDirectory` is true) `false` by default.
+- `printGitDiffToFile` : Print to a file instead of stdout. `None` (print to stdout) by default.
 - `excludeRootProject` : This plugin derives project-diff based on project's base directory. Since root project's base directory-path is included to any project's, excluding root project from diff is reasonable. `true` by default.
 - `patternsAffectAllProjects` : For some special files, you would want to force testing all projects if the file is modified. (e.g. `.travis.yml`, `circle.yml`, `build.sbt`, ...) `Seq(""".+\.sbt$""", """.+project/[^/]+\.scala""")` by default.
 
