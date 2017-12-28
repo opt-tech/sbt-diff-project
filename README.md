@@ -47,7 +47,7 @@ Now, you can test `batch` and `secondBatch` via pipe or redirection.
 Add the plugin in project/plugins.sbt:
 
 ```scala
-addSbtPlugin("jp.ne.opt" % "sbt-diff-project" % "0.2.0")
+addSbtPlugin("jp.ne.opt" % "sbt-diff-project" % "0.2.1")
 ```
 
 ### `git-diff-all` command
