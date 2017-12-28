@@ -5,7 +5,7 @@ lazy val root = (project in file(".")).settings(
   licenses += "MIT" -> url("https://raw.githubusercontent.com/opt-tech/sbt-diff-project/master/LICENSE"),
   addSbtPlugin("com.mayreh" % "sbt-reverse-dependency" % "0.2.0"),
 
-  version := "0.2.1",
+  version := "0.2.2-SNAPSHOT",
   organization := "jp.ne.opt",
   organizationName := "OptTechnologies",
   startYear := Some(2016),
